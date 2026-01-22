@@ -12,7 +12,7 @@ Summary:        All-in-one LLM CLI tool featuring Shell Assistant, Chat-REPL, RA
 
 License:        MIT OR Apache-2.0
 URL:            https://github.com/sigoden/aichat
-Source0:        aichat-%{shortcommit0}.tar.gz
+Source0:        https://github.com/sigoden/aichat/archive/%{commit0}/aichat-%{shortcommit0}.tar.gz
 
 BuildRequires:  rust
 BuildRequires:  cargo
@@ -54,4 +54,4 @@ install -Dm644 config.example.yaml %{buildroot}%{_docdir}/%{name}/config.example
 %{_docdir}/%{name}/
 
 %changelog
-* Thu Jan 22 2026 Stephane Klein <contact@stephane-klein.info> - %{version}-1
+%autochangelog
