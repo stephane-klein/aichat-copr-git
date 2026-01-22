@@ -16,6 +16,8 @@ To install the `aichat-git` package:
 
 ```sh
 $ sudo dnf install aichat-git
+$ aichat --version
+aichat 0.30.0
 ```
 
 **Note**: This package conflicts with the stable `aichat` package. You can only have one installed at a time.
