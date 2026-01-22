@@ -136,19 +136,25 @@ Install Mock:
 ```sh
 $ sudo dnf install mock fedora-packager
 $ sudo usermod -a -G mock $USER
-# Log out and back in for group changes to take effect
 ```
 
-Build the SRPM:
+Log out and back in for group changes to take effect.
+
+Generate SRPM:
 
 ```sh
-# Generate SRPM
 $ make -f .copr/Makefile srpm outdir=$(pwd)
+```
 
-# Or directly with the bash script
+Or directly with the bash script:
+
+```sh
 $ bash .copr/build-srpm.sh $(pwd)
+```
 
-# Build with Mock (--enable-network required for Cargo dependencies)
+Build with Mock (`--enable-network` required for Cargo dependencies):
+
+```sh
 $ mock -r fedora-42-x86_64 --enable-network aichat-git-*.src.rpm
 ```
 
@@ -159,11 +165,26 @@ Install and test:
 ```sh
 $ sudo dnf install /var/lib/mock/fedora-42-x86_64/result/aichat-git-*.x86_64.rpm
 $ aichat --version
+aichat 0.30.0
 ```
 
 ### Quick spec file validation
 
+Check spec file syntax:
+
 ```sh
-# Check spec file syntax
 $ rpmlint aichat-git.spec
+=== rpmlint session starts ===
+rpmlint: 2.8.0
+configuration:
+    /usr/lib/python3.13/site-packages/rpmlint/configdefaults.toml
+    /etc/xdg/rpmlint/fedora-spdx-licenses.toml
+    /etc/xdg/rpmlint/fedora.toml
+    /etc/xdg/rpmlint/scoring.toml
+    /etc/xdg/rpmlint/users-groups.toml
+    /etc/xdg/rpmlint/warn-on-functions.toml
+rpmlintrc: .rpmlintrc
+checks: 32, packages: 1
+
+=== 0 packages and 1 specfiles checked; 0 errors, 0 warnings, 2 filtered, 0 badness; has taken 0.0 s ===
 ```
