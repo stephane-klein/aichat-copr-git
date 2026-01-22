@@ -1,0 +1,10 @@
+# Source tarballs
+aichat-*.tar.gz
+
+# RPM artifacts
+*.src.rpm
+*.rpm
+rpmbuild/
+
+# COPR build tracking
+.last_build_commit

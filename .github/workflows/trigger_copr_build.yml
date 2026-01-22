@@ -1,0 +1,14 @@
+name: Trigger daily COPR build
+
+on:
+  schedule:
+    - cron: "0 2 * * *"  # Daily at 02:00 UTC
+  workflow_dispatch:
+
+jobs:
+  trigger-copr:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger COPR webhook
+        run: |
+          curl -X POST "https://copr.fedorainfracloud.org/webhooks/github/216045/e9e8cc96-301d-4dea-84a5-dadac9e5e892/aichat-git/"
